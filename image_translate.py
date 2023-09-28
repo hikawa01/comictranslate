@@ -30,6 +30,6 @@ def translate_images(input_folder, output_folder):
                         output_file.write(text.description + "\n")
 
 if __name__ == "__main__":
-    input_folder = "/Users/georgewang/dev/PythonDev/MangaTranslate/raw"
-    output_folder = "/Users/georgewang/dev/PythonDev/MangaTranslate/cooked"
+    input_folder = "/Users/georgewang/dev/PythonDev/MangaTranslate/raw" # 生肉路徑
+    output_folder = "/Users/georgewang/dev/PythonDev/MangaTranslate/cooked" # 熟肉路徑
     translate_images(input_folder, output_folder)
