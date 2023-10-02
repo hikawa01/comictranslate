@@ -28,18 +28,16 @@ def translate_images(input_folder, output_folder):
                 response = client.text_detection(image=image)
                 texts = response.text_annotations
 
-                # 翻譯文字
-                translated_text = translate_client.translate(texts[0].description, target_language='zh-TW')['translatedText']
-
                 # 使用PIL處理圖片
                 img = Image.open(file_path)
                 draw = ImageDraw.Draw(img)
-                font_path = "/Users/georgewang/Library/Fonts/arial.ttf" # 設定字體檔路徑
+                font_path = "/Users/georgewang/Library/Fonts/NotoSansTC-Regular.ttf" # 設定字體檔路徑
                 font = ImageFont.truetype(font_path, 15) # 設定使用的字體
 
                 for text in texts[1:]:
                     vertices = [(vertex.x, vertex.y) for vertex in text.bounding_poly.vertices]
                     draw.polygon(vertices, fill="white")
+                    translated_text = translate_client.translate(text.description, target_language='zh-TW')['translatedText']
                     draw.text((vertices[0][0], vertices[0][1]), translated_text, fill="black", font=font)
 
                 base_filename = os.path.splitext(filename)[0]  # 不包含副檔名的檔名
