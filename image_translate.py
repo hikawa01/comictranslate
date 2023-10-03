@@ -30,7 +30,7 @@ def translate_images(input_folder, output_folder):
                 # 使用PIL處理圖片
                 img = Image.open(file_path)
                 draw = ImageDraw.Draw(img)
-                font_path = "/Users/georgewang/Library/Fonts/NotoSansTC-Regular.ttf"  # 設定字體檔路徑
+                font_path = "/Users/georgewang/Library/Fonts/msjh.ttc"  # 設定字體檔路徑
                 font = ImageFont.truetype(font_path, 15)  # 設定使用的字體
 
                 for text in texts[1:]:
